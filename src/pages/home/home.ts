@@ -4,6 +4,9 @@ import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/fires
 import { Observable } from 'rxjs/Observable';
 import { ToDo } from '../../models/todo';
 
+import { AddPage } from "../add/add";
+import { DetailPage } from "../detail/detail";
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -11,21 +14,21 @@ import { ToDo } from '../../models/todo';
 export class HomePage {
 
   public collection: AngularFirestoreCollection<ToDo>;
-  public posts: Observable<ToDo[]>;
+  public todos: Observable<ToDo[]>;
 
   constructor(
     public navCtrl: NavController,
     private af: AngularFirestore) {
 
     this.collection = af.collection<ToDo>("todos");
-    this.posts = this.collection.snapshotChanges()
+    this.todos = this.collection.snapshotChanges()
       .map(actions =>  {
         return actions.map(action => {
           let data = action.payload.doc.data() as ToDo;
-          let idt = action.payload.doc.id;
+          let id = action.payload.doc.id;
 
           return {
-            idt,
+            id,
             ...data
           };
         })
@@ -35,6 +38,17 @@ export class HomePage {
 
   logout() {
     this.af.app.auth().signOut();
+  }
+
+  pushAddPage() {
+  this.navCtrl.push(AddPage);
+}
+
+  pushDetailPage(todo: ToDo) {
+    this.navCtrl.push(DetailPage), {
+      todo,
+      postCollection: this.collection
+    };
   }
 
 }
