@@ -10,13 +10,17 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { AddPage } from '../pages/add/add';
+import { DetailPage } from '../pages/detail/detail';
 
 import env from './env';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    AddPage,
+    DetailPage
   ],
   imports: [
     BrowserModule,
@@ -28,7 +32,9 @@ import env from './env';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    AddPage,
+    DetailPage
   ],
   providers: [
     StatusBar,
