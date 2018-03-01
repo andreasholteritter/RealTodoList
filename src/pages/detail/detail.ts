@@ -3,13 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {Observable} from "rxjs/Observable";
 import {AngularFirestoreCollection} from "angularfire2/firestore";
 import {ToDo} from "../../models/todo";
-
-/**
- * Generated class for the DetailPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { Comment } from "../../models/comment";
 
 @IonicPage()
 @Component({
@@ -19,19 +13,57 @@ import {ToDo} from "../../models/todo";
 export class DetailPage {
 
   public todo: ToDo;
-  public postCollection: AngularFirestoreCollection<ToDo>;
-  public comments: Observable<any[]>;
+  public todoCollection: AngularFirestoreCollection<any>;
+  public comments: Observable<Comment[]>;
   public commentText: string = "";
+  public todoBool = false;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
 
     this.todo = navParams.get('todo');
-    this.postCollection = navParams.get('todoCollection');
+    this.todoCollection = navParams.get('todoCollection');
 
-    this.comments = this.postCollection
+    this.comments = this.todoCollection
       .doc(this.todo.id)
-      .collection("comments")
-      .valueChanges();
+      .collection('comments')
+      .snapshotChanges()
+      .map(actions => {
+        return actions.map(action => {
+          let data = action.payload.doc.data() as Comment;
+          let id = action.payload.doc.id;
+
+          return {
+            id,
+            ...data
+          };
+        })
+      });
   }
 
+  addComment() {
+    this.todoCollection
+      .doc(this.todo.id)
+      .collection("comments")
+      .add({
+        body: this.commentText
+      });
+  }
+
+  remove() {
+    this.todoCollection.doc(this.todo.id).delete();
+    this.navCtrl.pop();
+  }
+
+  toggleDone(){
+    console.log("changing");
+    if (this.todoBool == false) {
+      console.log("to good");
+      this.todoCollection.doc(this.todo.id).update({ done: true });
+      this.todoBool = true;
+    } else {
+      console.log("to bad");
+      this.todoCollection.doc(this.todo.id).update({ done: false });
+      this.todoBool = false;
+    }
+  }
 }
