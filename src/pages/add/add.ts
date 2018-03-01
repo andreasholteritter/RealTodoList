@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-import { DetailPage } from "../detail/detail";
+import { AngularFirestoreCollection } from 'angularfire2/firestore';
+import { ToDo } from '../../models/todo';
 
 @IonicPage()
 @Component({
@@ -10,11 +10,15 @@ import { DetailPage } from "../detail/detail";
 })
 export class AddPage {
 
+  public todoCollection: AngularFirestoreCollection<ToDo>;
+  public todoText: string = "";
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.todoCollection = navParams.get('todoCollection');
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad AddPage');
+  addTodo() {
+    this.todoCollection.add({name: this.todoText, done: false } as ToDo);
   }
 
 }

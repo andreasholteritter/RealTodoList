@@ -4,19 +4,22 @@
       Todo List
     </ion-title>
     <ion-buttons end>
-      <button ion-button (click)="pushAddPage()">
+      <button (click)="pushAddPage()">
         <ion-icon name="add"></ion-icon>
       </button>
-      <button ion-button (click)="logout()">
+      <button (click)="logout()">
         <ion-icon name="exit"></ion-icon>
       </button>
     </ion-buttons>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <ion-list>
-    <ion-item *ngFor="let todo of todos | async" (click)="pushDetailPage(todo)">
+<ion-content padding color="home">
+  <ion-list color="home">
+    <ion-item
+      *ngFor="let todo of todos | async"
+      (click)="pushDetailPage(todo)"
+      color="home">
       {{todo.name}}
     </ion-item>
   </ion-list>

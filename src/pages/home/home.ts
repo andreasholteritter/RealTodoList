@@ -13,7 +13,7 @@ import { DetailPage } from "../detail/detail";
 })
 export class HomePage {
 
-  public collection: AngularFirestoreCollection<ToDo>;
+  public collection: AngularFirestoreCollection<any>;
   public todos: Observable<ToDo[]>;
 
   constructor(
@@ -21,7 +21,8 @@ export class HomePage {
     private af: AngularFirestore) {
 
     this.collection = af.collection<ToDo>("todos");
-    this.todos = this.collection.snapshotChanges()
+    this.todos = this.collection
+      .snapshotChanges()
       .map(actions =>  {
         return actions.map(action => {
           let data = action.payload.doc.data() as ToDo;
@@ -41,14 +42,15 @@ export class HomePage {
   }
 
   pushAddPage() {
-  this.navCtrl.push(AddPage);
+  this.navCtrl.push(AddPage, {
+    todoCollection: this.collection
+  });
 }
 
   pushDetailPage(todo: ToDo) {
-    this.navCtrl.push(DetailPage), {
+    this.navCtrl.push(DetailPage, {
       todo,
-      postCollection: this.collection
-    };
+      todoCollection: this.collection
+    });
   }
-
 }

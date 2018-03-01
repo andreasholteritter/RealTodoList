@@ -1,6 +1,7 @@
 // http://ionicframework.com/docs/theming/
 
 
+
 // App Global Sass
 // --------------------------------------------------
 // Put style rules here that you want to apply globally. These
@@ -14,3 +15,49 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+input, textarea {
+  display: block;
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 10px;
+  background: none;
+  border-bottom: 1px solid #414a59 !important;
+  border: 0;
+  color: #fff;
+}
+
+input[type='submit'] {
+  background-color: #ffcc00;
+  cursor: pointer;
+  color: #000;
+  font-weight: bold;
+  margin-bottom: 50px;
+  padding: 20px;
+}
+
+ul {
+  list-style-type: none;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  li {
+    background-color: #414a59;
+    padding: 20px;
+    margin-bottom: 2px;
+    color: #bec8d9;
+    a {
+      color: #ffcc00;
+    }
+  }
+}
+
+h1 {
+  margin-top: 50px;
+}
+
+body {
+  background-color: #FFF;
+  padding: 2em;
+  color: #007aff;
+  font-family: 'Arial';
+}
