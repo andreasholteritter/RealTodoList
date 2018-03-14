@@ -6,3 +6,5 @@ export default {
   storageBucket: "tdsgramreal-c8c12.appspot.com",
   messagingSenderId: "927591992260"
 };
+
+export const GOOGLE_API_KEY = "AIzaSyDWZOhQvLLsw9ihwDYsxIMWRElq0ARqQlI";

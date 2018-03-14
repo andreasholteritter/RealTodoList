@@ -8,6 +8,26 @@
 
 
 <ion-content padding>
-  <ion-input placeholder="Make a new todo" [(ngModel)]="todoText"></ion-input>
-  <button ion-button (click)="addTodo()">Add Todo</button>
+  <ion-grid>
+    <ion-row>
+      <ion-input placeholder="Write here" [(ngModel)]="todoText" type="text"></ion-input>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <button ion-button (click)="executeCamera()">Camera</button>
+      </ion-col>
+      <ion-col>
+        <button ion-button (click)="findGeolocation()">Location</button>
+      </ion-col>
+      <ion-col>
+        <button ion-button (click)="addTodo()">Add Todo</button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <p>{{ addressString }}</p>
+    </ion-row>
+    <ion-row>
+      <img style="height: 300px" [src]="'data:image/jpeg;base64,' + previewImage" />
+    </ion-row>
+  </ion-grid>
 </ion-content>
