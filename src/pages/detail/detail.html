@@ -19,11 +19,21 @@
     <ion-toggle [(ngModel)]="todo.done" onchange="toggleDone()"></ion-toggle>
   </ion-item>
   <ion-list>
-    <ion-item *ngFor="let comment of comments | async">
+    <ion-item no-lines *ngFor="let comment of comments | async">
       {{ comment.body }}
+    </ion-item>
+    <ion-item no-lines>
+      <ion-label fixed>Comment</ion-label>
+      <ion-input
+        type="text"
+        [(ngModel)]="commentText"
+        placeholder="Write here"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <button ion-button (click)="addComment()" block>Add a comment</button>
     </ion-item>
   </ion-list>
 
-  <ion-input [(ngModel)]="commentText"></ion-input>
-  <button ion-button (click)="addComment()">Add a comment</button>
+
 </ion-content>

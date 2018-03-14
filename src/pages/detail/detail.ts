@@ -12,13 +12,16 @@ import { Comment } from "../../models/comment";
 })
 export class DetailPage {
 
-  public todo: ToDo;
-  public todoCollection: AngularFirestoreCollection<any>;
-  public comments: Observable<Comment[]>;
-  public commentText: string = "";
-  public todoBool = false;
+    public    todo            : ToDo;
+    public    todoCollection  : AngularFirestoreCollection<any>;
+    public    comments        : Observable<Comment[]>;
+    public    commentText     : string = "";
+    public    todoBool        : boolean = false;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    public    navCtrl         : NavController,
+    public    navParams       : NavParams
+  ) {
 
     this.todo = navParams.get('todo');
     this.todoCollection = navParams.get('todoCollection');
@@ -47,6 +50,7 @@ export class DetailPage {
       .add({
         body: this.commentText
       });
+    this.commentText = "";
   }
 
   remove() {

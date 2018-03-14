@@ -18,9 +18,10 @@
   <ion-list color="home">
     <ion-item
       *ngFor="let todo of todos | async"
-      (click)="pushDetailPage(todo)"
-      color="home">
-      {{todo.name}}
+      (click)="pushDetailPage(todo)">
+      <img src="{{ todo.imgUrl }}"/>
+      <p>{{todo.name}}</p>
+      <p *ngIf="todo.location">{{todo.location.countryCode}}</p>
     </ion-item>
   </ion-list>
 </ion-content>
