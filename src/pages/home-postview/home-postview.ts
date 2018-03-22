@@ -1,22 +1,22 @@
 import { Component } from '@angular/core';
-import {FabContainer, NavController} from 'ionic-angular';
+import {FabContainer, IonicPage, NavController, NavParams} from 'ionic-angular';
 import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
 import { Observable } from 'rxjs/Observable';
 import { ToDo } from '../../models/todo';
 
 import { AddPage } from "../add/add";
 import { DetailPage } from "../detail/detail";
-import { HomePostviewPage} from "../home-postview/home-postview";
+import {HomePage} from "../home/home";
 
+@IonicPage()
 @Component({
-  selector: 'page-home',
-  templateUrl: 'home.html'
+  selector: 'page-home-postview',
+  templateUrl: 'home-postview.html',
 })
-export class HomePage {
-
+export class HomePostviewPage {
   public collection: AngularFirestoreCollection<any>;
   public todos: Observable<ToDo[]>;
-  public classPage: string = 'image-view';
+  public classPage: string = 'post-view';
   public classTab: string = 'apps';
 
   constructor(
@@ -60,11 +60,11 @@ export class HomePage {
   fabController(fabName: string, fab: FabContainer) {
     switch (fabName) {
       case "home":
+        this.navCtrl.push(HomePage, {});
         fab.close();
         break;
       case "home-postview":
         fab.close();
-        this.navCtrl.push(HomePostviewPage, {});
         break;
       default:
         fab.close();

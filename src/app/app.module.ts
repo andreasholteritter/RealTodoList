@@ -27,17 +27,22 @@ import { HttpProvider }               from '../providers/http/http';
 import { PlacesProvider }             from '../providers/places/places';
 
 import { HttpClientModule }           from "@angular/common/http";
+import {HomePostviewPage} from "../pages/home-postview/home-postview";
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     AddPage,
-    DetailPage
+    DetailPage,
+    HomePostviewPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp, {
+      scrollAssist: false,
+      autoFocusAssist: false
+    }),
     AngularFireModule.initializeApp(env),
     AngularFirestoreModule,
     AngularFireAuthModule,
@@ -49,7 +54,8 @@ import { HttpClientModule }           from "@angular/common/http";
     MyApp,
     HomePage,
     AddPage,
-    DetailPage
+    DetailPage,
+    HomePostviewPage
   ],
   providers: [
     StatusBar,
@@ -61,7 +67,7 @@ import { HttpClientModule }           from "@angular/common/http";
     GeocoderProvider,
     NativeGeocoder,
     HttpProvider,
-    PlacesProvider
+    PlacesProvider,
   ]
 })
 export class AppModule {}

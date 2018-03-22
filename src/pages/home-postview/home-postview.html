@@ -4,7 +4,7 @@
       Todo List
     </ion-title>
     <ion-buttons end>
-      <button icon-only (click)="pushPage('add')">
+      <button icon-only (click)="pushAddPage()">
         <ion-icon name="add"></ion-icon>
       </button>
       <button icon-only (click)="logout()">
@@ -18,21 +18,14 @@
   <ion-list class="{{ classPage }}" no-lines>
     <img [src]="todo.imgUrl"
          *ngFor="let todo of todos | async"
-         (click)="pushPage('detail', todo)" />
+         (click)="pushDetailPage(todo)" />
 
-    <!--<ion-item
-      *ngFor="let todo of todos | async"
-      (click)="pushDetailPage(todo)">
-      <img src="{{ todo.imgUrl }}"/>
-      <p>{{todo.name}}</p>
-      <p *ngIf="todo.location">{{todo.location.countryCode}}</p>
-    </ion-item>-->
   </ion-list>
 
   <ion-fab left bottom #fab>
     <button ion-fab color="lightblue"><ion-icon name="{{ classTab }}" color="light"></ion-icon></button>
     <ion-fab-list side="top">
-      <button ion-fab color="lightblue" (click)="fabController('home', fab)" ><ion-icon name="apps" color="light"></ion-icon></button>
+      <button ion-fab color="lightblue" (click)="fabController('home', fab)"><ion-icon name="apps" color="light"></ion-icon></button>
       <button ion-fab color="lightblue" (click)="fabController('home-postview', fab)"><ion-icon name="list" color="light"></ion-icon></button>
     </ion-fab-list>
   </ion-fab>

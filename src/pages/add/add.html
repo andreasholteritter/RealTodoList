@@ -14,20 +14,23 @@
     </ion-row>
     <ion-row>
       <ion-col>
-        <button ion-button (click)="executeCamera()">Camera</button>
+        <button block ion-button (click)="executeCamera()">Camera</button>
       </ion-col>
       <ion-col>
-        <button ion-button (click)="findGeolocation()">Location</button>
+        <button block ion-button (click)="findGeolocation()">Location</button>
       </ion-col>
+
+    </ion-row>
+    <ion-row>
       <ion-col>
-        <button ion-button (click)="addTodo()">Add Todo</button>
+        <button block ion-button (click)="addTodo()">Add Todo</button>
       </ion-col>
     </ion-row>
     <ion-row>
-      <p>{{ addressString }}</p>
+      <p><b>Location:</b> {{ addressString }}</p>
     </ion-row>
     <ion-row>
-      <img style="height: 300px" [src]="'data:image/jpeg;base64,' + previewImage" />
+      <img *ngIf="previewImage.length > 0" style="height: 300px" [src]="'data:image/jpeg;base64,' + previewImage" />
     </ion-row>
   </ion-grid>
 </ion-content>

@@ -1,27 +1,19 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>AuthorizePage</ion-title>
-  </ion-navbar>
-</ion-header>
-
 <ion-content padding>
-  <ion-grid>
-    <ion-col>
-      <ion-row>
-        <!--<img src="/assets/imgs/logo.png" />-->
-      </ion-row>
-      <form [formGroup]="authForm">
-        <ion-row>
-          <ion-input placeholder="Username" type="text" formControlName="username" [(ngModel)]="user.username"></ion-input>
-        </ion-row>
-        <ion-row>
-          <ion-input placeholder="Password" type="password" formControlName="password" [(ngModel)]="user.password"></ion-input>
-        </ion-row>
-      </form>
-      <ion-row>
-        <button block ion-button (click)="loginUser()">Logg inn</button>
-        <button block ion-button (click)="registerUser()">Registrer</button>
-      </ion-row>
-    </ion-col>
-  </ion-grid>
+  <section class="container">
+    <section>
+      <h1 class="login-title">Login</h1>
+    </section>
+    <section>
+      <ion-label fixed>Username</ion-label>
+      <ion-input class="text-input-field" placeholder="Username" type="text" [(ngModel)]="user.username"></ion-input>
+    </section>
+    <section>
+      <ion-label fixed>Password</ion-label>
+      <ion-input class="text-input-field" placeholder="Password" type="password" [(ngModel)]="user.password"></ion-input>
+    </section>
+    <section>
+      <button block ion-button (click)="loginUser()">Logg inn</button>
+      <button block ion-button (click)="registerUser()">Registrer</button>
+    </section>
+  </section>
 </ion-content>

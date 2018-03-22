@@ -1,0 +1,22 @@
+page-home-postview {
+  @mixin home-img($width, $height) {
+    width: $width;
+    height: $height;
+  }
+
+  .post-view {
+
+    ion-item {
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      align-content: center;
+
+      img {
+        @include home-img(80vw !important, 70vh);
+      }
+    }
+  }
+}
