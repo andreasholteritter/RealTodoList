@@ -1,3 +1,5 @@
 page-add {
-
+  button {
+    background: map-get($colors, blueish) !important;
+  }
 }

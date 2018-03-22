@@ -1,9 +1,11 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import {Observable} from "rxjs/Observable";
-import {AngularFirestoreCollection} from "angularfire2/firestore";
-import {ToDo} from "../../models/todo";
-import { Comment } from "../../models/comment";
+import { Component }                    from '@angular/core';
+import { IonicPage }                    from 'ionic-angular';
+import { NavController }                from 'ionic-angular';
+import { NavParams }                    from 'ionic-angular';
+import { Observable }                   from "rxjs/Observable";
+import { AngularFirestoreCollection }   from "angularfire2/firestore";
+import { ToDo }                         from "../../models/todo";
+import { Comment }                      from "../../models/comment";
 
 @IonicPage()
 @Component({
@@ -62,11 +64,13 @@ export class DetailPage {
     console.log("changing");
     if (this.todoBool == false) {
       console.log("to good");
-      this.todoCollection.doc(this.todo.id).update({ done: true });
+      this.todoCollection.doc(this.todo.id)
+        .update({ done: true });
       this.todoBool = true;
     } else {
       console.log("to bad");
-      this.todoCollection.doc(this.todo.id).update({ done: false });
+      this.todoCollection.doc(this.todo.id)
+        .update({ done: false });
       this.todoBool = false;
     }
   }

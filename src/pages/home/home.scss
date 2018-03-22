@@ -14,49 +14,23 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
-input, textarea {
-  display: block;
-  width: 100%;
-  margin-bottom: 15px;
-  padding: 10px;
-  background: none;
-  border-bottom: 1px solid #414a59 !important;
-  border: 0;
-  color: #fff;
-}
 
-input[type='submit'] {
-  background-color: #ffcc00;
-  cursor: pointer;
-  color: #000;
-  font-weight: bold;
-  margin-bottom: 50px;
-  padding: 20px;
-}
+page-home {
+  @mixin home-img($width, $height) {
+    width: $width;
+    height: $height;
+  }
 
-ul {
-  list-style-type: none;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  li {
-    background-color: #414a59;
-    padding: 20px;
-    margin-bottom: 2px;
-    color: #bec8d9;
-    a {
-      color: #ffcc00;
+  .image-view {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: stretch;
+
+    img {
+      @include home-img(50vw !important, 28vh);
+      margin:0 !important;
     }
   }
-}
-
-h1 {
-  margin-top: 50px;
-}
-
-body {
-  background-color: #222427;
-  padding: 2em;
-  color: #fff;
-  font-family: 'Arial';
 }

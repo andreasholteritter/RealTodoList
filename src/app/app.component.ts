@@ -1,10 +1,10 @@
-import { Component } from '@angular/core';
-import { Platform } from 'ionic-angular';
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
+import { Component }                    from '@angular/core';
+import { Platform }                     from 'ionic-angular';
+import { StatusBar }                    from '@ionic-native/status-bar';
+import { SplashScreen }                 from '@ionic-native/splash-screen';
 
-import { HomePage } from '../pages/home/home';
-import { AngularFirestore } from 'angularfire2/firestore';
+import { HomePage }                     from '../pages/home/home';
+import { AngularFirestore }             from 'angularfire2/firestore';
 @Component({
   templateUrl: 'app.html'
 })
@@ -12,10 +12,10 @@ export class MyApp {
   rootPage:any;
 
   constructor(
-    platform: Platform,
-    statusBar: StatusBar,
-    splashScreen: SplashScreen,
-    af: AngularFirestore
+    platform:       Platform,
+    statusBar:      StatusBar,
+    splashScreen:   SplashScreen,
+    af:             AngularFirestore
   ) {
 
     const authObserver = af.app.auth().onAuthStateChanged(

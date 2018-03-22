@@ -23,7 +23,7 @@ export class AddPage {
     public    todoCollection  : AngularFirestoreCollection<ToDo>;
     public    todoText        : string = "";
     private   previewImage    : string = "";
-    public    addressString   : string;
+    public    addressString   : string = "";
     public    location        : Location;
 
   constructor(
@@ -80,6 +80,7 @@ export class AddPage {
       .then((result: NativeGeocoderReverseResult) => {
         console.log(JSON.stringify(result));
         this.location = result[0];
+        this.addressString = this.location.countryName + ", " + this.location.locality;
       })
       .catch((error: any) => console.log(error));
   }
@@ -97,7 +98,8 @@ export class AddPage {
       .getPicture({
         destinationType: this.camera.DestinationType.DATA_URL,
         encodingType: this.camera.EncodingType.JPEG,
-        cameraDirection: this.camera.Direction.BACK
+        cameraDirection: this.camera.Direction.BACK,
+        correctOrientation: true
       })
       .then(imgBase64 => {
         this.previewImage = imgBase64
