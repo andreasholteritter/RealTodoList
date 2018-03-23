@@ -34,4 +34,7 @@ $RECYCLE.BIN/
 Thumbs.db
 UserInterfaceState.xcuserstate
 todoList\src\app\env.ts
+<<<<<<< HEAD
 src/app/env.ts
+=======
+>>>>>>> 048eb071703e0185ebf06875119a490c96aafa04
