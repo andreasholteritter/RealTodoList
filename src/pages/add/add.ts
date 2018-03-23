@@ -80,7 +80,7 @@ export class AddPage {
       .then((result: NativeGeocoderReverseResult) => {
         console.log(JSON.stringify(result));
         this.location = result[0];
-        this.addressString = this.location.countryName + ", " + this.location.locality;
+        this.addressString = this.location.administrativeArea + ", " + this.location.locality;
       })
       .catch((error: any) => console.log(error));
   }

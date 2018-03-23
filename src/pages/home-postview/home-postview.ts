@@ -1,3 +1,4 @@
+//TODO: CLean up, sort, and place imports
 import { Component } from '@angular/core';
 import {FabContainer, IonicPage, NavController, NavParams} from 'ionic-angular';
 import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
