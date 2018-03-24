@@ -18,6 +18,7 @@ export class HomePage {
   public todos: Observable<ToDo[]>;
   public classPage: string = 'image-view';
   public classTab: string = 'apps';
+  public viewModel: string = 'image-view';
 
   constructor(
     public navCtrl: NavController,
@@ -61,10 +62,13 @@ export class HomePage {
     switch (fabName) {
       case "home":
         fab.close();
+        this.viewModel = "image-view";
+        console.log("image-view is " + this.viewModel);
         break;
       case "home-postview":
         fab.close();
-        this.navCtrl.push(HomePostviewPage, {});
+        this.viewModel = "post-view";
+        console.log("post-view is " + this.viewModel);
         break;
       default:
         fab.close();
