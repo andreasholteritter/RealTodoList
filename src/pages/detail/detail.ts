@@ -45,6 +45,10 @@ export class DetailPage {
       });
   }
 
+  updateDone() {
+    //this.todoCollection.
+  }
+
   addComment() {
     this.todoCollection
       .doc(this.todo.id)

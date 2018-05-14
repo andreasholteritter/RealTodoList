@@ -6,7 +6,6 @@ import { ToDo } from '../../models/todo';
 
 import { AddPage } from "../add/add";
 import { DetailPage } from "../detail/detail";
-import { HomePostviewPage} from "../home-postview/home-postview";
 
 @Component({
   selector: 'page-home',

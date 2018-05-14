@@ -6,11 +6,11 @@ import { NavParams }                    from 'ionic-angular';
 import { AngularFirestore }             from 'angularfire2/firestore';
 import { AngularFirestoreCollection }   from 'angularfire2/firestore';
 import { ToDo }                         from '../../models/todo';
-import { Camera }                       from "@ionic-native/camera";
+import { Camera }                       from '@ionic-native/camera';
 import { Geolocation }                  from '@ionic-native/geolocation';
-import { NativeGeocoder }               from "@ionic-native/native-geocoder";
+import { NativeGeocoder }               from '@ionic-native/native-geocoder';
 import { Location }                     from '../../models/location';
-import { AngularFireStorage }           from "angularfire2/storage";
+import { AngularFireStorage }           from 'angularfire2/storage';
 import { NativeGeocoderReverseResult }  from '@ionic-native/native-geocoder';
 
 @IonicPage()

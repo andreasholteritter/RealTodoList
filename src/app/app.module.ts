@@ -27,15 +27,13 @@ import { HttpProvider }               from '../providers/http/http';
 import { PlacesProvider }             from '../providers/places/places';
 
 import { HttpClientModule }           from "@angular/common/http";
-import {HomePostviewPage} from "../pages/home-postview/home-postview";
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     AddPage,
-    DetailPage,
-    HomePostviewPage
+    DetailPage
   ],
   imports: [
     BrowserModule,
@@ -54,8 +52,7 @@ import {HomePostviewPage} from "../pages/home-postview/home-postview";
     MyApp,
     HomePage,
     AddPage,
-    DetailPage,
-    HomePostviewPage
+    DetailPage
   ],
   providers: [
     StatusBar,
